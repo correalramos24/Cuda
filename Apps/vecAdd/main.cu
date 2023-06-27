@@ -4,29 +4,27 @@
 
 #include "kernel.h"
 #include "../common/file.h"
-#include "../common/errorManager.h"
 
-
-
+void checkCudaError(const cudaError_t err);
 
 int main(int argc, char const *argv[]){
 
     float *A_h, *B_h, *C_h, *A_d, *B_d, *C_d;
     unsigned int vec_size;
-    char* infileA = "input/inputA.dat";
-    char* infileB = "input/inputB.dat";
-    char* outfile = "output/out.dat";
+    char infileA[] = "input/inputA.dat";
+    char infileB[] = "input/inputB.dat";
+    char outfile[] = "output/out.dat";
     size_t vec_bytes;
     
     dim3 dim_grid, dim_block;
-    cudaError err;
+    cudaError_t err;
 
     //1. Allocate host memory for the input/output vectors
     readVector(infileA, &A_h, &vec_size);
     readVector(infileB, &B_h, &vec_size);
     vec_bytes = sizeof(float) * vec_size;
     C_h = (float*) malloc(vec_bytes);
-    printf("Load vectors with size %i (bytes %d)\n", vec_size, vec_bytes);
+    printf("Load vectors with size %i (bytes %lu)\n", vec_size, vec_bytes);
 
     //2. Allocate device memory for the input/output vectors
     err = cudaMalloc(&A_d, vec_bytes);
@@ -64,3 +62,8 @@ int main(int argc, char const *argv[]){
 }
 
 
+void checkCudaError(const cudaError_t err){
+    if(err == cudaSuccess) return;
+    printf("%s : %s", cudaGetErrorName(err), cudaGetErrorString(err));
+    exit(4);
+}
