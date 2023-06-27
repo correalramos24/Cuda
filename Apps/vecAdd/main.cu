@@ -11,8 +11,8 @@ int main(int argc, char const *argv[]){
 
     float *A_h, *B_h, *C_h, *A_d, *B_d, *C_d;
     unsigned int vec_size;
-    char infileA[] = "input/input1.dat";
-    char infileB[] = "input/input2.dat";
+    char infileA[] = "inputs/input1.dat";
+    char infileB[] = "inputs/input2.dat";
     char outfile[] = "output/out.dat";
     size_t vec_bytes;
     
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[]){
 
     //Free device memory allocations
     cudaFree(A_d); cudaFree(B_d); cudaFree(C_d);
-    free(A_h); free(A_h); free(A_h);
+    free(A_h); free(B_h); free(C_h);
 
     return 0;
 }
