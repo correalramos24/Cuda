@@ -11,8 +11,8 @@ int main(int argc, char const *argv[]){
 
     float *A_h, *B_h, *C_h, *A_d, *B_d, *C_d;
     unsigned int vec_size;
-    char infileA[] = "input/inputA.dat";
-    char infileB[] = "input/inputB.dat";
+    char infileA[] = "input/input1.dat";
+    char infileB[] = "input/input2.dat";
     char outfile[] = "output/out.dat";
     size_t vec_bytes;
     
