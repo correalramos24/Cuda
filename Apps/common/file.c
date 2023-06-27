@@ -17,11 +17,15 @@ void readVector(const char *fName, float **vec_h, unsigned *size)
 }
 
 
-void writeVector(const char *fName, float *vec_h, unsigned size)
+void writeVectorFloat(const char *fName, float *vec_h, unsigned size)
 {
     FILE* fp = fopen(fName, "wb");
     if (fp == NULL) FATAL("Cannot open output file");
     fwrite(&size, sizeof(unsigned), 1, fp);
     fwrite(vec_h, sizeof(float), size, fp);
     fclose(fp);
+}
+
+void writeVectorUnsig(const char* fName, unsigned *vec, unsigned size){
+    
 }

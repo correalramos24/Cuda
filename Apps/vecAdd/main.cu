@@ -52,7 +52,7 @@ int main(int argc, char const *argv[]){
 
     //Copy the result back to the host & print result
     err = cudaMemcpy(C_h, C_d, vec_bytes, cudaMemcpyDeviceToHost);
-    writeVector(outfile, C_h, vec_size);
+    writeVectorFloat(outfile, C_h, vec_size);
 
     //Free device memory allocations
     cudaFree(A_d); cudaFree(B_d); cudaFree(C_d);

@@ -52,7 +52,7 @@ int main(int argc, char const *argv[]){
 	printf("%u -- expected %u\n", histo_h[i], histo_g[i]);
     }
 
-    writeVector("out.dat", histo_h, MAX_VAL);
+    writeVectorUnsig("out.dat", histo_h, MAX_VAL);
         
     // Clean host&device memory:
     cudaFree(histo_d);
