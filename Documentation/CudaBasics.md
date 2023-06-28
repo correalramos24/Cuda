@@ -1,10 +1,8 @@
 # CUDA
 
-[TOC]
-
 **Reference links**
 
-* [CUDA C programming]: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.htm
+[CUDA C programming]: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.htm
 
 
 ## Introduction
